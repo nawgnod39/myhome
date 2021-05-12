@@ -20,7 +20,10 @@
 <div class="container">
     <h2>게시판</h2>
     <form action="#" th:action="@{/board/form}" th:object="${board}" method="post">
+        <!--hidden으로 사용자에게 노출시키지않음 ,14라는 글을 수정하고싶으면 14라는  아이디를 같이지정해야함
+        -->
         <input type="hidden" th:field="*{id}">
+
         <div class="form-group">
             <label for="title">제목</label>
             <input type="text" class="form-control"

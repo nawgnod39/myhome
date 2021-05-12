@@ -28,7 +28,7 @@ public class BoardController {
        List<Board> boards = boardRepository.findAll();//findall 하면db값을 다 가져올수있음.trl spacebar 눌러보면 list <board> type 이다.
        model.addAttribute("boards", boards);//model 에 담긴 데이터들은  타임리프에서 사용가능
        return "board/list";
-    }
+    }//
 
     @GetMapping("/form")
     public String form(Model model, @RequestParam(required = false) Long id) {
