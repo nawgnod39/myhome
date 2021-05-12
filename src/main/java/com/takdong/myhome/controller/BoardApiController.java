@@ -19,8 +19,8 @@ class BoardApiController {
     @GetMapping("/boards")
     List<Board> all(@RequestParam(required = false, defaultValue = "") String title,
                     @RequestParam(required = false, defaultValue = "") String content) {
-        if(StringUtils.isEmpty(title) && StringUtils.isEmpty(content)) {
-            return repository.findAll();
+        if(StringUtils.isEmpty(title) && StringUtils.isEmpty(content)) {//둘다 빈값일때 전체 데이터 조회
+            return repository.findAll();//전체게시판내용
         } else {
             return repository.findByTitleOrContent(title, content);
         }
@@ -35,7 +35,7 @@ class BoardApiController {
 
     @GetMapping("/boards/{id}")
     Board one(@PathVariable Long id) {
-        return repository.findById(id).orElse(null);
+        return repository.findById(id).orElse(null);//optional 임으로 없을경우 null 리턴 하기위해 orElse 사용
     }
 
     @PutMapping("/boards/{id}")
